@@ -94,7 +94,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              to="/socios"
+              href="/socios"
               onClick={() => setOpen(false)}
               className="btn-base btn-yellow group mt-8 w-full"
             >
