@@ -42,9 +42,9 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.label}
-              to={link.to}
+              href={link.to}
               className="group relative text-sm font-medium text-secondary-text transition-colors duration-[180ms] hover:text-white"
             >
               {link.label}
@@ -84,16 +84,16 @@ export function SiteHeader() {
           </div>
           <nav className="shell mt-6 flex flex-col" aria-label="Navegación móvil">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.label}
-                to={link.to}
+                href={link.to}
                 onClick={() => setOpen(false)}
                 className="border-b border-hairline py-4 font-display text-3xl font-bold uppercase"
               >
                 {link.label}
               </a>
             ))}
-            <Link
+            <a
               to="/socios"
               onClick={() => setOpen(false)}
               className="btn-base btn-yellow group mt-8 w-full"
