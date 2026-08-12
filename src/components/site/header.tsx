@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { clubLogo, navLinks } from "./club-assets";
 
@@ -31,7 +30,7 @@ export function SiteHeader() {
       }}
     >
       <div className={`shell flex items-center justify-between ${stuck ? "py-3" : "py-4 md:py-5"}`}>
-        <Link to="/" className="flex items-center gap-3" aria-label="Club San Martín — Inicio">
+        <a href="/" className="flex items-center gap-3" aria-label="Club San Martín — Inicio">
           <img src={clubLogo} alt="Escudo de Club San Martín" className="h-11 w-auto md:h-14" />
           <span className="hidden font-display text-lg leading-none font-700 uppercase sm:block">
             <span className="block text-base leading-[1.05] font-bold tracking-wide">
@@ -39,7 +38,7 @@ export function SiteHeader() {
             </span>
             <span className="label-xs block text-muted-text">Fútbol · Barrio · Futuro</span>
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
           {navLinks.map((link) => (
@@ -50,15 +49,15 @@ export function SiteHeader() {
             >
               {link.label}
               <span className="absolute -bottom-1.5 left-0 h-[2px] w-full origin-left scale-x-0 bg-club-yellow transition-transform duration-[180ms] group-hover:scale-x-100" />
-            </Link>
+            </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/socios" className="btn-base btn-yellow group hidden md:inline-flex">
+          <a href="/socios" className="btn-base btn-yellow group hidden md:inline-flex">
             Hacete socio
             <ArrowRight className="arrow-shift size-4" strokeWidth={2.5} />
-          </Link>
+          </a>
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -92,7 +91,7 @@ export function SiteHeader() {
                 className="border-b border-hairline py-4 font-display text-3xl font-bold uppercase"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
             <Link
               to="/socios"
@@ -101,7 +100,7 @@ export function SiteHeader() {
             >
               Hacete socio
               <ArrowRight className="arrow-shift size-4" strokeWidth={2.5} />
-            </Link>
+            </a>
           </nav>
         </div>
       )}
