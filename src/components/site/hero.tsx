@@ -1,74 +1,94 @@
-import { ArrowRight } from "lucide-react";
-import { clubLogo, clubPhotos } from "./club-assets";
+import { Link } from "@tanstack/react-router";
+import { heroImage } from "./club-assets";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-44 lg:pb-32">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-40 -left-32 hidden size-[620px] rounded-full opacity-[0.18] blur-[120px] lg:block"
-        style={{ background: "#2b4290" }}
-      />
-      <div className="shell-wide relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-        <div>
-          <p
-            className="hero-in label-xs text-club-yellow"
-            style={{ animationDelay: "0ms" }}
-          >
-            Club de fútbol · Formación y comunidad
-          </p>
-          <h1 className="hero-in display-xl mt-5" style={{ animationDelay: "80ms" }}>
-            Formamos jugadores.
-            <br />
-            <span className="text-club-yellow">Construimos futuro.</span>
-          </h1>
-          <p
-            className="hero-in body-lg mt-6 max-w-xl"
-            style={{ animationDelay: "160ms" }}
-          >
-            Somos un club de barrio que acompaña a cada jugador desde sus primeros pasos hasta las
-            categorías mayores, formando personas, deportistas y oportunidades dentro y fuera de la
-            cancha.
-          </p>
-          <p
-            className="hero-in mt-4 max-w-xl text-muted-text"
-            style={{ animationDelay: "200ms" }}
-          >
-            Nuestro semillero ya abrió camino a jugadores que continuaron su formación en
-            instituciones de primer nivel.
-          </p>
-          <div
-            className="hero-in mt-9 flex flex-wrap items-center gap-3"
-            style={{ animationDelay: "260ms" }}
-          >
-            <a href="/socios" className="btn-base btn-yellow group">
-              Hacete socio
-              <ArrowRight className="arrow-shift size-4" strokeWidth={2.5} />
-            </a>
-            <a href="/club" className="btn-base btn-ghost group">
-              Conocé el club
-              <ArrowRight className="arrow-shift size-4" strokeWidth={2.5} />
-            </a>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="media-reveal overflow-hidden rounded-[16px] border border-hairline">
-            <img
-              src={clubPhotos.juveniles}
-              alt="Plantel de inferiores de Club San Martín en la cancha del barrio"
-              className="aspect-4/3 w-full object-cover lg:aspect-3/4"
-              loading="eager"
-            />
-          </div>
-          <div className="hero-in absolute -bottom-6 -left-4 flex items-center gap-3 rounded-[12px] border border-hairline bg-surface px-4 py-3 md:left-6" style={{ animationDelay: "420ms" }}>
-            <img src={clubLogo} alt="" className="size-10" aria-hidden="true" />
-            <div>
-              <p className="font-display text-xl leading-none font-bold uppercase">Semillero activo</p>
-              <p className="text-sm text-muted-text">Infantiles, juveniles, primera y senior</p>
+    <section className="relative isolate overflow-hidden bg-club-blue" aria-labelledby="hero-title">
+      {/* Desktop: full-bleed photo with a functional left scrim for legibility */}
+      <div className="relative hidden md:block">
+        <img
+          src={heroImage}
+          alt=""
+          aria-hidden="true"
+          width={1536}
+          height={1024}
+          fetchPriority="high"
+          decoding="async"
+          className="h-[clamp(560px,78vh,760px)] w-full object-cover object-[center_top]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(3,17,69,0.86) 0%, rgba(3,17,69,0.52) 35%, rgba(3,17,69,0.05) 65%)",
+          }}
+        />
+        <div className="absolute inset-0 flex items-center">
+          <div className="shell-wide">
+            <div className="max-w-[34rem]">
+              <p className="hero-in label-xs text-club-yellow" style={{ animationDelay: "0ms" }}>
+                Club de fútbol de barrio
+              </p>
+              <h1
+                id="hero-title"
+                className="hero-in display-xl mt-4"
+                style={{ animationDelay: "90ms" }}
+              >
+                Formamos jugadores.
+                <br />
+                Construimos futuro.
+              </h1>
+              <p
+                className="hero-in mt-6 text-lg font-medium text-secondary-text"
+                style={{ animationDelay: "180ms" }}
+              >
+                Fútbol, formación y comunidad desde 1948.
+              </p>
+              <Link
+                to="/socios"
+                className="hero-in btn-base btn-yellow mt-8"
+                style={{ animationDelay: "260ms" }}
+              >
+                Hacete socio
+              </Link>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile: copy first, photo integrated below, CTA above the fold */}
+      <div className="md:hidden">
+        <div className="shell pt-[104px] pb-9">
+          <p className="hero-in label-xs text-club-yellow">Club de fútbol de barrio</p>
+          <h1 className="hero-in display-xl mt-3" style={{ animationDelay: "80ms" }}>
+            Formamos jugadores.
+            <br />
+            Construimos futuro.
+          </h1>
+          <p
+            className="hero-in mt-5 font-medium text-secondary-text"
+            style={{ animationDelay: "160ms" }}
+          >
+            Fútbol, formación y comunidad desde 1948.
+          </p>
+          <Link
+            to="/socios"
+            className="hero-in btn-base btn-yellow mt-7 w-full"
+            style={{ animationDelay: "240ms" }}
+          >
+            Hacete socio
+          </Link>
+        </div>
+        <img
+          src={heroImage}
+          alt="Plantel de primera de Club San Martín frente al escudo del club"
+          width={1536}
+          height={1024}
+          fetchPriority="high"
+          decoding="async"
+          className="aspect-4/3 w-full object-cover object-[center_top]"
+        />
       </div>
     </section>
   );

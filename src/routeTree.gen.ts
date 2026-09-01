@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AfiliadosRouteImport } from './routes/afiliados'
+import { Route as ClubRouteImport } from './routes/club'
+import { Route as ComunidadRouteImport } from './routes/comunidad'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as FutbolRouteImport } from './routes/futbol'
+import { Route as SociosRouteImport } from './routes/socios'
+import { Route as SponsorsRouteImport } from './routes/sponsors'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AfiliadosRoute = AfiliadosRouteImport.update({
+  id: '/afiliados',
+  path: '/afiliados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClubRoute = ClubRouteImport.update({
+  id: '/club',
+  path: '/club',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComunidadRoute = ComunidadRouteImport.update({
+  id: '/comunidad',
+  path: '/comunidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FutbolRoute = FutbolRouteImport.update({
+  id: '/futbol',
+  path: '/futbol',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SociosRoute = SociosRouteImport.update({
+  id: '/socios',
+  path: '/socios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorsRoute = SponsorsRouteImport.update({
+  id: '/sponsors',
+  path: '/sponsors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/afiliados': typeof AfiliadosRoute
+  '/club': typeof ClubRoute
+  '/comunidad': typeof ComunidadRoute
+  '/contacto': typeof ContactoRoute
+  '/futbol': typeof FutbolRoute
+  '/socios': typeof SociosRoute
+  '/sponsors': typeof SponsorsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/afiliados': typeof AfiliadosRoute
+  '/club': typeof ClubRoute
+  '/comunidad': typeof ComunidadRoute
+  '/contacto': typeof ContactoRoute
+  '/futbol': typeof FutbolRoute
+  '/socios': typeof SociosRoute
+  '/sponsors': typeof SponsorsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/afiliados': typeof AfiliadosRoute
+  '/club': typeof ClubRoute
+  '/comunidad': typeof ComunidadRoute
+  '/contacto': typeof ContactoRoute
+  '/futbol': typeof FutbolRoute
+  '/socios': typeof SociosRoute
+  '/sponsors': typeof SponsorsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/afiliados'
+    | '/club'
+    | '/comunidad'
+    | '/contacto'
+    | '/futbol'
+    | '/socios'
+    | '/sponsors'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/afiliados'
+    | '/club'
+    | '/comunidad'
+    | '/contacto'
+    | '/futbol'
+    | '/socios'
+    | '/sponsors'
+  id:
+    | '__root__'
+    | '/'
+    | '/afiliados'
+    | '/club'
+    | '/comunidad'
+    | '/contacto'
+    | '/futbol'
+    | '/socios'
+    | '/sponsors'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AfiliadosRoute: typeof AfiliadosRoute
+  ClubRoute: typeof ClubRoute
+  ComunidadRoute: typeof ComunidadRoute
+  ContactoRoute: typeof ContactoRoute
+  FutbolRoute: typeof FutbolRoute
+  SociosRoute: typeof SociosRoute
+  SponsorsRoute: typeof SponsorsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/afiliados': {
+      id: '/afiliados'
+      path: '/afiliados'
+      fullPath: '/afiliados'
+      preLoaderRoute: typeof AfiliadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/club': {
+      id: '/club'
+      path: '/club'
+      fullPath: '/club'
+      preLoaderRoute: typeof ClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/comunidad': {
+      id: '/comunidad'
+      path: '/comunidad'
+      fullPath: '/comunidad'
+      preLoaderRoute: typeof ComunidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/futbol': {
+      id: '/futbol'
+      path: '/futbol'
+      fullPath: '/futbol'
+      preLoaderRoute: typeof FutbolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/socios': {
+      id: '/socios'
+      path: '/socios'
+      fullPath: '/socios'
+      preLoaderRoute: typeof SociosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsors': {
+      id: '/sponsors'
+      path: '/sponsors'
+      fullPath: '/sponsors'
+      preLoaderRoute: typeof SponsorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AfiliadosRoute: AfiliadosRoute,
+  ClubRoute: ClubRoute,
+  ComunidadRoute: ComunidadRoute,
+  ContactoRoute: ContactoRoute,
+  FutbolRoute: FutbolRoute,
+  SociosRoute: SociosRoute,
+  SponsorsRoute: SponsorsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
