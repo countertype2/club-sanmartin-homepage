@@ -1,115 +1,71 @@
-import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { news } from "./club-assets";
-import { Reveal, SectionLabel } from "./reveal";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { formatLongDate, news } from "./club-assets";
+import { Reveal } from "./reveal";
 
 export function FeaturedNews() {
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => setIndex((i) => (i + 1) % news.length), 7000);
-    return () => window.clearInterval(id);
-  }, [paused]);
-
-  const item = news[index]!;
+  const [lead, ...rest] = news;
+  const secondary = rest.slice(0, 2);
+  if (!lead) return null;
 
   return (
-    <section id="noticias" className="section-y border-t border-hairline">
+    <section id="noticias" className="section-y">
       <div className="shell">
         <Reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>Últimas noticias</SectionLabel>
+            <p className="label-xs text-club-yellow">Noticias</p>
             <h2 className="heading-2 mt-4">Todo lo que pasa en el club</h2>
-            <p className="body-lg mt-3 max-w-lg">
-              Dentro y fuera de la cancha, el club se mueve todos los días.
-            </p>
           </div>
-          <a href="/noticias" className="btn-base btn-ghost group">
+          <Link to="/comunidad" className="group inline-flex items-center gap-2 text-sm font-semibold">
             Ver todas las noticias
-            <ArrowRight className="arrow-shift size-4" strokeWidth={2.5} />
-          </a>
+            <ArrowRight className="arrow-shift size-4 text-club-yellow" strokeWidth={2.5} />
+          </Link>
         </Reveal>
 
-        <Reveal
-          delay={80}
-          className="mt-10 grid overflow-hidden rounded-[16px] border border-hairline bg-surface lg:grid-cols-[1.2fr_1fr]"
-        >
-          <div
-            className="relative overflow-hidden"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <img
-              key={item.image}
-              src={item.image}
-              alt={item.alt}
-              className="media-reveal aspect-16/10 w-full object-cover lg:aspect-auto lg:h-full"
-              loading="lazy"
-            />
-          </div>
-          <div className="flex flex-col justify-between gap-8 p-6 md:p-10">
-            <div key={index} className="hero-in">
-              <span className="label-xs inline-block rounded-[6px] bg-club-blue px-2.5 py-1.5 text-white">
-                {item.category}
-              </span>
-              <h3 className="heading-3 mt-5">{item.title}</h3>
-              <p className="mt-3 text-sm text-muted-text">{item.date}</p>
-              <p className="body-lg mt-4">{item.description}</p>
-              <a
-                href="/noticias"
-                className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase text-club-yellow"
-              >
-                Leer noticia
-                <ArrowRight className="arrow-shift size-4" strokeWidth={2.5} />
-              </a>
-            </div>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.55fr_1fr] lg:gap-14">
+          <Reveal>
+            <Link to={lead.to} className="group block">
+              <div className="overflow-hidden">
+                <img
+                  src={lead.image}
+                  alt={lead.alt}
+                  className="aspect-16/10 w-full object-cover transition-transform duration-[450ms] ease-out group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+              <p className="label-xs mt-6 text-club-yellow">
+                {lead.category} · {formatLongDate(lead.date)}
+              </p>
+              <h3 className="heading-3 mt-3 max-w-[24ch] transition-colors duration-[180ms] group-hover:text-club-yellow">
+                {lead.title}
+              </h3>
+              <p className="body-lg mt-4 max-w-[62ch]">{lead.description}</p>
+            </Link>
+          </Reveal>
 
-            <div className="flex items-center justify-between gap-6">
-              <div className="flex items-center gap-2" role="tablist" aria-label="Noticias destacadas">
-                {news.map((n, i) => (
-                  <button
-                    key={n.title}
-                    type="button"
-                    role="tab"
-                    aria-selected={i === index}
-                    aria-label={`Ver noticia: ${n.title}`}
-                    onClick={() => setIndex(i)}
-                    className="flex h-11 items-center"
-                  >
-                    <span
-                      className="h-[3px] transition-all duration-[260ms]"
-                      style={{
-                        width: i === index ? 44 : 20,
-                        background: i === index ? "#f9ed0e" : "rgba(255,255,255,0.24)",
-                      }}
-                    />
-                  </button>
-                ))}
-              </div>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  aria-label="Noticia anterior"
-                  onClick={() => setIndex((i) => (i - 1 + news.length) % news.length)}
-                  className="flex size-11 items-center justify-center rounded-[8px] border border-hairline-strong transition-colors duration-[180ms] hover:border-white/60"
-                >
-                  <ArrowLeft className="size-4" />
-                </button>
-                <button
-                  type="button"
-                  aria-label="Noticia siguiente"
-                  onClick={() => setIndex((i) => (i + 1) % news.length)}
-                  className="flex size-11 items-center justify-center rounded-[8px] border border-hairline-strong transition-colors duration-[180ms] hover:border-white/60"
-                >
-                  <ArrowRight className="size-4" />
-                </button>
-              </div>
-            </div>
+          <div className="flex flex-col divide-y divide-hairline border-t border-hairline lg:border-t-0 lg:border-l lg:pl-10">
+            {secondary.map((item, i) => (
+              <Reveal key={item.title} delay={i * 70}>
+                <Link to={item.to} className="group flex gap-5 py-6 first:lg:pt-0">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="size-24 shrink-0 object-cover md:size-28"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p className="label-xs text-muted-text">
+                      {item.category} · {formatLongDate(item.date)}
+                    </p>
+                    <h3 className="font-display mt-2 text-xl leading-[1.05] font-bold uppercase transition-colors duration-[180ms] group-hover:text-club-yellow md:text-2xl">
+                      {item.title}
+                    </h3>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

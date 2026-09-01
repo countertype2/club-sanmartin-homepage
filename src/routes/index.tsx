@@ -1,31 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/header";
 import { Hero } from "@/components/site/hero";
-import { FeaturedNews } from "@/components/site/news";
+import { MatchCenter } from "@/components/site/match-center";
 import { TheClub } from "@/components/site/club";
-import { Categories } from "@/components/site/categories";
-import { WaysToJoin } from "@/components/site/join";
-import { Matches } from "@/components/site/matches";
+import { FormationPath } from "@/components/site/categories";
+import { FeaturedNews } from "@/components/site/news";
+import { Membership } from "@/components/site/membership";
 import { Events } from "@/components/site/events";
-import { Sponsors } from "@/components/site/sponsors";
-import { Social } from "@/components/site/social";
-import { Ground } from "@/components/site/ground";
+import { SponsorshipCta } from "@/components/site/sponsorship";
+import { ClubLife } from "@/components/site/club-life";
+import { FinalCta } from "@/components/site/final-cta";
 import { SiteFooter } from "@/components/site/footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Club San Martín | Fútbol, formación y barrio" },
+      { title: "Club San Martín | Fútbol, formación y comunidad" },
       {
         name: "description",
         content:
-          "Club de barrio dedicado a la formación de jugadores. Conocé nuestras categorías, partidos y eventos, y hacete socio para apoyar al semillero.",
+          "Club de barrio dedicado a la formación de jugadores desde 1948. Próximo partido, categorías, eventos y cómo hacerte socio.",
       },
-      { property: "og:title", content: "Club San Martín | Fútbol, formación y barrio" },
+      { property: "og:title", content: "Club San Martín | Fútbol, formación y comunidad" },
       {
         property: "og:description",
         content:
-          "Formamos jugadores y construimos futuro desde el barrio. Sumate como socio, afiliado o jugador.",
+          "Formamos jugadores y construimos futuro desde el barrio. Hacete socio de Club San Martín.",
       },
     ],
   }),
@@ -38,15 +38,15 @@ function Index() {
       <SiteHeader />
       <main>
         <Hero />
-        <FeaturedNews />
+        <MatchCenter />
         <TheClub />
-        <Categories />
-        <WaysToJoin />
-        <Matches />
+        <FormationPath />
+        <FeaturedNews />
+        <Membership />
         <Events />
-        <Sponsors />
-        <Social />
-        <Ground />
+        <SponsorshipCta />
+        <ClubLife />
+        <FinalCta />
       </main>
       <SiteFooter />
     </>
