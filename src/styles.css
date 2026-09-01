@@ -8,7 +8,7 @@
 
 @theme {
   --font-display: "Barlow Condensed", ui-sans-serif, sans-serif;
-  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: #080d1a;
   --color-foreground: #ffffff;
@@ -23,9 +23,9 @@
   --color-hairline: rgba(255, 255, 255, 0.1);
   --color-hairline-strong: rgba(255, 255, 255, 0.24);
 
-  --radius-btn: 8px;
-  --radius-card: 14px;
-  --radius-media: 16px;
+  --radius-btn: 6px;
+  --radius-card: 4px;
+  --radius-media: 4px;
 
   --motion-fast: 180ms;
   --motion-base: 260ms;
