@@ -81,12 +81,42 @@ export const news = [
 
 /** Ruta de formación: nombres y edades existentes del club, sin cambios. */
 export const categories = [
-  { name: "Infantiles", range: "6 a 12 años" },
-  { name: "Prejuveniles", range: "13 a 15 años" },
-  { name: "Juveniles", range: "16 a 18 años" },
-  { name: "Primera", range: "Plantel mayor" },
-  { name: "Adultos", range: "Desde 19 años" },
-  { name: "Senior", range: "Veteranos" },
+  {
+    name: "Infantiles",
+    range: "6 a 12 años",
+    focus: "Primer contacto con el club: juego, coordinación y compañerismo antes que resultados.",
+    image: clubPhotos.infantiles,
+  },
+  {
+    name: "Prejuveniles",
+    range: "13 a 15 años",
+    focus: "Se afianzan los fundamentos técnicos y la lectura del juego en cancha de once.",
+    image: clubPhotos.infantiles,
+  },
+  {
+    name: "Juveniles",
+    range: "16 a 18 años",
+    focus: "Competencia formal, exigencia física y la puerta de entrada al plantel mayor.",
+    image: clubPhotos.juveniles,
+  },
+  {
+    name: "Primera",
+    range: "Plantel mayor",
+    focus: "El equipo que representa al barrio, con jugadores formados en el propio semillero.",
+    image: clubPhotos.primera,
+  },
+  {
+    name: "Adultos",
+    range: "Desde 19 años",
+    focus: "Fútbol para seguir jugando y sostener el vínculo con el club toda la vida.",
+    image: clubPhotos.primera,
+  },
+  {
+    name: "Senior",
+    range: "Veteranos",
+    focus: "La memoria del club en cancha: encuentros, torneos y historia compartida.",
+    image: clubPhotos.juveniles,
+  },
 ];
 
 export const events = [
