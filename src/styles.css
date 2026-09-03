@@ -296,6 +296,100 @@
   animation: hero-in var(--motion-slow) var(--ease-sport) both;
 }
 
+
+/* ---------- Editorial media ---------- */
+
+@utility media-frame {
+  overflow: hidden;
+  border-radius: var(--radius-media);
+  border: 1px solid var(--color-hairline);
+  background: var(--color-surface);
+}
+
+@utility media-zoom {
+  transition: transform var(--motion-slow) var(--ease-sport);
+  .group:hover & {
+    transform: scale(1.045);
+  }
+}
+
+/* ---------- Hero cinematic entry ---------- */
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+    opacity: 0.65;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@utility hero-zoom {
+  animation: hero-zoom 1400ms var(--ease-sport) both;
+}
+
+/* ---------- Match center choreography ---------- */
+
+@keyframes slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes soft-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility enter-left {
+  animation: slide-from-left var(--motion-slow) var(--ease-sport) both;
+}
+
+@utility enter-right {
+  animation: slide-from-right var(--motion-slow) var(--ease-sport) both;
+}
+
+@utility enter-soft {
+  animation: soft-fade var(--motion-medium) var(--ease-sport) both;
+}
+
+/* ---------- Floating capsule header ---------- */
+
+@utility float-bar {
+  background: color-mix(in oklab, #050b1e 88%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: 999px;
+  box-shadow: 0 10px 34px rgba(3, 8, 24, 0.42);
+  transition:
+    opacity var(--motion-base) var(--ease-sport),
+    transform var(--motion-base) var(--ease-sport);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
