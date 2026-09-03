@@ -35,7 +35,7 @@ export function MatchCenter() {
   return (
     <section id="partidos" className="relative z-10 -mt-10 md:-mt-24">
       <div className="shell-wide" ref={ref}>
-        <div className="relative overflow-hidden rounded-[6px] border border-hairline-strong bg-[#0a1budefined]">
+        <div className="relative overflow-hidden rounded-[6px] border border-hairline-strong">
           <div className="absolute inset-x-0 top-0 h-[3px] bg-club-yellow" aria-hidden="true" />
           <div
             className="grid gap-8 bg-surface-blue/95 p-6 backdrop-blur-md md:grid-cols-[1.6fr_1fr] md:gap-12 md:p-10"
