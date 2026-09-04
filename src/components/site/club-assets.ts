@@ -2,6 +2,7 @@ import logo from "@/assets/logoSanMartin.svg.asset.json";
 import crest from "@/assets/escudo-sanma.svg.asset.json";
 import crestRival from "@/assets/escudo-generico.svg.asset.json";
 import heroBg from "@/assets/SanMartinBg.webp.asset.json";
+import nightField from "@/assets/SanMartinIlustracion.webp.asset.json";
 import photo01 from "@/assets/sanmartin-01.jpg.asset.json";
 import photo02 from "@/assets/sanmartin-02.jpg.asset.json";
 import photo03 from "@/assets/sanmartin-03.jpg.asset.json";
@@ -10,6 +11,7 @@ export const clubLogo = logo.url;
 export const clubCrest = crest.url;
 export const rivalCrest = crestRival.url;
 export const heroImage = heroBg.url;
+export const clubNightImage = nightField.url;
 
 export const clubPhotos = {
   juveniles: photo01.url,
