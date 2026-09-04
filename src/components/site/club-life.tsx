@@ -39,7 +39,7 @@ export function ClubLife() {
             }}
           />
 
-          <div className="relative flex min-h-[clamp(520px,86vh,860px)] flex-col justify-between gap-12 p-6 py-14 md:p-12 lg:p-16">
+          <div className="relative flex min-h-[clamp(520px,86vh,860px)] flex-col-reverse justify-end gap-10 p-6 py-14 md:flex-col md:justify-between md:gap-12 md:p-12 lg:p-16">
             {/* Bloque funcional — superior derecha en desktop */}
             <div className="flex md:justify-end">
               <div className="w-full max-w-[26rem] md:text-right">
