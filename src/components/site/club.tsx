@@ -4,9 +4,9 @@ import { clubPhotos } from "./club-assets";
 import { Reveal } from "./reveal";
 
 const stats = [
-  { value: "+180", label: "Jugadores" },
-  { value: "6", label: "Categorías" },
-  { value: "1948", label: "Desde" },
+  { value: "1946", label: "Fundación" },
+  { value: "2022", label: "En la Liga Concordiense" },
+  { value: "2025", label: "Primera en Calabacilla" },
 ];
 
 export function TheClub() {
@@ -16,14 +16,14 @@ export function TheClub() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
           <Reveal>
             <p className="label-xs text-club-yellow">Nuestro club</p>
-            <h2 className="heading-2 mt-4">Un semillero que no para de crecer</h2>
+            <h2 className="heading-2 mt-4 uppercase">San Martín, de generación en generación</h2>
             <p className="body-lg mt-6 max-w-[54ch]">
-              Somos una institución de barrio que trabaja para que chicos, jóvenes y adultos
-              encuentren en el fútbol un espacio de formación, pertenencia y crecimiento.
+              Desde 1946, los colores de San Martín acompañan a generaciones de jugadores, familias
+              y amigos que forman parte de la vida del club.
             </p>
             <p className="body-lg mt-4 max-w-[54ch]">
-              Nuestro semillero acompaña cada etapa del jugador y busca generar oportunidades para
-              quienes sueñan con dar el próximo paso.
+              Cada entrenamiento, cada partido y cada categoría continúa una historia que se
+              construye entre todos.
             </p>
 
             <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-hairline pt-8">

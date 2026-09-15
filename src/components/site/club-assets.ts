@@ -155,13 +155,16 @@ export const events = [
  * Perfiles sociales reales del club. Mientras estén vacíos, la UI no muestra
  * enlaces falsos: solo indica que el canal está por confirmarse.
  */
-export const socialProfiles: { instagram?: string; facebook?: string; whatsapp?: string } = {};
+export const socialProfiles: { instagram?: string; facebook?: string; whatsapp?: string } = {
+  instagram: "https://www.instagram.com/clubsanmartindc/",
+  facebook: "https://www.facebook.com/profile.php?id=100071126236342&locale=es_LA",
+};
 
 export const clubGround = {
   name: "Cancha de Club San Martín",
-  address: "Dirección a confirmar",
-  city: "Barrio San Martín",
-  mapUrl: "",
+  address: "3203, Concordia, Entre Ríos",
+  city: "Calabacilla",
+  mapUrl: "https://maps.app.goo.gl/XMuiuPfehpTnaaBs8",
 };
 
 const monthNames = [

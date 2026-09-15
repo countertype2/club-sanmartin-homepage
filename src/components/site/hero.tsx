@@ -35,7 +35,7 @@ export function Hero() {
           <div className="shell-wide">
             <div className="max-w-[36rem]">
               <p className="hero-in label-xs text-club-yellow" style={{ animationDelay: "120ms" }}>
-                Club de fútbol de barrio · desde 1948
+                Club de fútbol de barrio · desde 1946
               </p>
               <h1
                 id="hero-title"
@@ -67,7 +67,7 @@ export function Hero() {
       {/* Mobile: copy first, photo integrated below, CTA above the fold */}
       <div className="md:hidden">
         <div className="shell pt-14 pb-9">
-          <p className="hero-in label-xs text-club-yellow">Club de fútbol de barrio · desde 1948</p>
+          <p className="hero-in label-xs text-club-yellow">Club de fútbol de barrio · desde 1946</p>
           <h1 className="hero-in display-xl mt-3" style={{ animationDelay: "140ms" }}>
             Formamos jugadores.
             <br />
