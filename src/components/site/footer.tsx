@@ -64,7 +64,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-6 text-sm text-muted-text">
           <p>© {new Date().getFullYear()} Club San Martín.</p>
-          <p>Fútbol, formación y comunidad desde 1948.</p>
+          <p>Fútbol, formación y comunidad desde 1946.</p>
         </div>
       </div>
     </footer>

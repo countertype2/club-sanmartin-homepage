@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Club de barrio dedicado a la formación de jugadores desde 1948. Próximo partido, categorías, eventos y cómo hacerte socio.",
+          "Club de barrio dedicado a la formación de jugadores desde 1946. Próximo partido, categorías, eventos y cómo hacerte socio.",
       },
       { property: "og:title", content: "Club San Martín | Fútbol, formación y comunidad" },
       {
